@@ -13,7 +13,7 @@ const MainPage = () => {
   const categories = data
     ?.filter(
       (product, index, self) =>
-        self.findIndex ((p) => p.category === product.category) === index
+        self.findIndex((p) => p.category === product.category) === index,
     )
     .map((product) => ({
       categoryName: product.category,
@@ -22,9 +22,9 @@ const MainPage = () => {
 
   // Seçili kategoriye göre filtreleme
   const filteredProducts = data?.filter(
-    (product) => selectedCategory === null || product.category === selectedCategory
+    (product) =>
+      selectedCategory === null || product.category === selectedCategory,
   );
-
 
   return (
     <div>
@@ -39,18 +39,21 @@ const MainPage = () => {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      
-        {/* Tüm kategorileri gör butonu */}
-        <div className="col">
-     
-            <div className="card-footer text-center">
-              <a onClick={() => setSelectedCategory(null)} href="#product" className="btn btn-danger mt-4 ">
-                Tüm Ürünleri Gör
-              </a>
-          </div>
-        </div>
 
-      <div id="product" className="d-flex flex-wrap gap-4 p-5 justify-content-around">
+      {/* Tüm ürünleri gör butonu */}
+      <div
+        style={{ zIndex: 1111 }}
+        className="position-fixed top-0 end-0 m-4 pt-5 "
+      >
+        <button
+          onClick={() => setSelectedCategory(null)}
+          className="btn btn-danger"
+        >
+          Tüm Ürünleri Gör
+        </button>
+      </div>
+
+      <div className="d-flex flex-wrap gap-4 p-5 justify-content-around">
         {filteredProducts?.map((product) => (
           <Cart key={product.id} product={product} />
         ))}
