@@ -44,9 +44,9 @@ const MainPage = () => {
         <div className="col">
      
             <div className="card-footer text-center">
-              <button onClick={() => setSelectedCategory(null)} href="#product" className="btn btn-danger mt-4 ">
+              <a onClick={() => setSelectedCategory(null)} href="#product" className="btn btn-danger mt-4 ">
                 Tüm Ürünleri Gör
-              </button>
+              </a>
           </div>
         </div>
 
