@@ -45,15 +45,19 @@ const MainPage = () => {
         style={{ zIndex: 1111 }}
         className="position-fixed top-0 end-0 m-4 pt-5 "
       >
-        <button
+        <a
+
+        href="#product"
           onClick={() => setSelectedCategory(null)}
           className="btn btn-danger"
         >
           Tüm Ürünleri Gör
-        </button>
+        </a>
       </div>
 
-      <div className="d-flex flex-wrap gap-4 p-5 justify-content-around">
+      <div 
+      id="product"
+      className="d-flex flex-wrap gap-4 p-5 justify-content-around">
         {filteredProducts?.map((product) => (
           <Cart key={product.id} product={product} />
         ))}
